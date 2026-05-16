@@ -1,6 +1,6 @@
 //Importera express, employeeModel och authenticationToken
 const express = require("express");
-const Reservation = require("../models/employee.model.js");
+const Reservation = require("../models/reservation.model.js");
 const authenticationToken = require("../middleware/authenticationToken.js");
 
 const route = express.Router();
