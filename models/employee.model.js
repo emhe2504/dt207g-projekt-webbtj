@@ -54,7 +54,7 @@ employeeSchema.methods.comparePassword = async function (password) {
     }
 }
 
-//Logga in användare
+//Logga in anställd
 employeeSchema.statics.login = async function (email, password) {
     try {
         const employee = await this.findOne({ email });     //letar efter email i databasen

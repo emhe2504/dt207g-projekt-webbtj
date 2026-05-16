@@ -5,8 +5,8 @@ const mongoose = require("mongoose");
 require("dotenv").config(); //Läs in variabler från .env-fil
 
 //Läsa in routes
-const employeeRoutes = require("./routes/employeeRoutes");
-const guestRoutes = require("./routes/guestRoutes");
+const employeeReservationRoutes = require("./routes/employeeReservationRoutes");
+const guestReservationRoutes = require("./routes/guestReservationRoutes");
 
 //Express-instans
 const app = express();
@@ -25,8 +25,8 @@ app.use(cors());    //Tillåt cross-origin
 app.use(express.json());
 
 //Routes
-app.use("/reservation", guestRoutes);
-app.use("/employee", employeeRoutes);
+app.use("/guestreservation", guestReservationRoutes);
+app.use("/employeereservation", employeeReservationRoutes);
 
 app.listen(port, () => {
     console.log("Server is running at port: " + port)
