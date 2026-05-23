@@ -11,7 +11,7 @@ const menuSchema = new mongoose.Schema({
         required: [true, "Ange måltidsbeskrivning"]
     },
     mealprice: {
-        type: Date,
+        type: String,
         required: [true, "Ange måltidspris"]
     }
 });

@@ -8,6 +8,7 @@ require("dotenv").config(); //Läs in variabler från .env-fil
 const employeeReservationRoutes = require("./routes/employeeReservationRoutes");
 const employeeRoutes = require("./routes/employeeRoutes");
 const guestReservationRoutes = require("./routes/guestReservationRoutes");
+const menuRoutes = require("./routes/menuRoutes");
 
 //Express-instans
 const app = express();
@@ -29,6 +30,7 @@ app.use(express.json());
 app.use("/guestreservation", guestReservationRoutes);
 app.use("/employeereservation", employeeReservationRoutes);
 app.use("/employee", employeeRoutes);
+app.use("/menu", menuRoutes);
 
 app.listen(port, () => {
     console.log("Server is running at port: " + port)
