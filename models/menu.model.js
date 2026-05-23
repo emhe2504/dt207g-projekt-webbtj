@@ -13,6 +13,10 @@ const menuSchema = new mongoose.Schema({
     mealprice: {
         type: String,
         required: [true, "Ange måltidspris"]
+    },
+    mealType: {
+        type: String,
+        required: [true, "Ange måltidstyp"]
     }
 });
 
