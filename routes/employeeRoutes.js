@@ -45,11 +45,27 @@ route.put("/:id", authenticationToken, async (req, res) => {
 
         //Där id = req.params.id, sätt in den nya req.body (validering - required)
         let result = await Employee.updateOne({ _id: id }, { $set: newData }, { runValidators: true });
-        return res.json(result);
+
+        if (result.modifiedCount > 0 ) {
+            return res.json( { message: "Korrigeringar sparade i anställd "} );
+        } else {
+            return res.json( { message: "Inga korrigeringar kunde göras "} );
+        }
+        
 
     } catch (error) {
 
-        return res.status(400).json(error);
+        //Om required-fält är tomma blir det validationError (runValidators)
+        if (error.name === "ValidationError") {
+
+            const errorArray = Object.values(error.errors); //Array med errors
+            const errorMessage = errorArray.map(err => (err.message));  //Hittar message bland errors
+            console.log(errorMessage);
+
+            return res.status(400).json({ message: errorMessage });
+        }
+
+        return res.status(500).json({ message: "Server error" });
     }
 })
 
