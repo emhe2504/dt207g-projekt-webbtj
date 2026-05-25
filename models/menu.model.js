@@ -14,7 +14,7 @@ const menuSchema = new mongoose.Schema({
         type: String,
         required: [true, "Ange måltidspris"]
     },
-    mealType: {
+    mealtype: {
         type: String,
         required: [true, "Ange måltidstyp"]
     }
