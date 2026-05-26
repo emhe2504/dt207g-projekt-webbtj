@@ -27,7 +27,7 @@ route.get("/:id", authenticationToken, async (req, res) => {
         const id = req.params.id;
         const result = await Reservation.findById(id);
 
-        if (!result) { return res.status(404).json({ message: "Could not find reservation with matching Id" }) };
+        if (!result) { return res.status(404).json({ message: "Kunde inte hitta bokning med matchande ID" }) };
         res.json(result);
 
     } catch (error) {
