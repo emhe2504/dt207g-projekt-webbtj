@@ -96,7 +96,7 @@ route.post("/register", async (req, res) => {
 
     } catch (error) {
 
-        if (error.errorResponse.code === 11000) {
+        if (error.code === 11000) {
             errors.push("Email-adressen är upptagen")
             console.log(errors)
             return res.status(500).json({ message: errors })
