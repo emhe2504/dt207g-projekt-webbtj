@@ -21,13 +21,13 @@ route.get("/", async (req, res) => {
 
 
 //Get route, hämta specifik måltid i meny med id
-route.get("/:id", async (req, res) => {
+route.get("/:id", authenticationToken, async (req, res) => {
 
     try {
         const id = req.params.id;
         const result = await Menu.findById(id);
 
-        if (!result) { return res.status(404).json({ message: "Could not find meal with matching Id" }) };
+        if (!result) { return res.status(404).json({ message: "Kunde inte hitta måltid med matchande ID" }) };
         res.json(result);
 
     } catch (error) {
@@ -37,7 +37,7 @@ route.get("/:id", async (req, res) => {
 
 
 //Post route, lägga till i meny
-route.post("/", async (req, res) => {
+route.post("/", authenticationToken, async (req, res) => {
 
     try {
 
@@ -62,7 +62,7 @@ route.post("/", async (req, res) => {
 
 
 //Put route, ändra befintlig måltid i meny
-route.put("/:id", async (req, res) => {
+route.put("/:id", authenticationToken, async (req, res) => {
 
     try {
 
@@ -91,7 +91,7 @@ route.put("/:id", async (req, res) => {
 
 
 //Delete route, radera måltid i meny
-route.delete("/:id", async (req, res) => {
+route.delete("/:id", authenticationToken, async (req, res) => {
 
     try {
 

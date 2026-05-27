@@ -129,7 +129,7 @@ route.post("/login", async (req, res) => {
 
         //Skapa jwt-token
         const payload = { email: email, id: registeredEmployee._id };  //Payload läggs in i token
-        const token = jwt.sign(payload, process.env.JWT_KEY, { expiresIn: "24h" }); //Hemlig nyckel används för att skapa signatur
+        const token = jwt.sign(payload, process.env.JWT_KEY, { expiresIn: "1h" }); //Hemlig nyckel används för att skapa signatur
 
         //Hämta anställd igen, utan lösenord
 
