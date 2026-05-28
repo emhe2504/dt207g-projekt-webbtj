@@ -1,4 +1,4 @@
-//Importera express, guestbook och authenticationToken
+//Importera express och Reservation
 const express = require("express");
 const Reservation = require("../models/reservation.model.js");
 
@@ -37,10 +37,10 @@ route.post("/", async (req, res) => {
             const errorMessage = errorArray.map(err => (err.message));  //Hittar message bland errors
             console.log(errorMessage);
 
-            return res.status(400).json( { message: errorMessage } );
+            return res.status(400).json({ message: errorMessage });
         }
 
-        return res.status(500).json( { message: "Server error" } );
+        return res.status(500).json({ message: "Server error" });
     }
 })
 

@@ -1,4 +1,4 @@
-//Importera express, employeeModel och authenticationToken
+//Importera express, Reservation och authenticationToken
 const express = require("express");
 const Reservation = require("../models/reservation.model.js");
 const authenticationToken = require("../middleware/authenticationToken.js");

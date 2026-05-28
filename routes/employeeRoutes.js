@@ -1,4 +1,4 @@
-//Importera express, guestbook och authenticationToken
+//Importera express, Employee, authenticationToken och jwt
 const express = require("express");
 const Employee = require("../models/Employee.model.js");
 const authenticationToken = require("../middleware/authenticationToken.js");
@@ -46,12 +46,12 @@ route.put("/:id", authenticationToken, async (req, res) => {
         //Där id = req.params.id, sätt in den nya req.body (validering - required)
         let result = await Employee.updateOne({ _id: id }, { $set: newData }, { runValidators: true });
 
-        if (result.modifiedCount > 0 ) {
-            return res.json( { message: "Korrigeringar sparade i anställd "} );
+        if (result.modifiedCount > 0) {
+            return res.json({ message: "Korrigeringar sparade i anställd " });
         } else {
-            return res.json( { message: "Inga korrigeringar kunde göras "} );
+            return res.json({ message: "Inga korrigeringar kunde göras " });
         }
-        
+
 
     } catch (error) {
 

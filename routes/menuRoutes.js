@@ -1,4 +1,4 @@
-//Importera express, menu och 
+//Importera express, Menu och authenticationToken
 const express = require("express");
 const Menu = require("../models/menu.model.js");
 const authenticationToken = require("../middleware/authenticationToken.js");
@@ -61,7 +61,7 @@ route.post("/", authenticationToken, async (req, res) => {
 })
 
 
-//Put route, ändra befintlig måltid i meny
+//Put route, ändra befintlig måltid i meny med id
 route.put("/:id", authenticationToken, async (req, res) => {
 
     try {
@@ -73,21 +73,21 @@ route.put("/:id", authenticationToken, async (req, res) => {
 
         res.json(result);
 
-        } catch (error) {
+    } catch (error) {
 
-            //Om required-fält är tomma blir det validationError (runValidators)
-            if (error.name === "ValidationError") {
+        //Om required-fält är tomma blir det validationError (runValidators)
+        if (error.name === "ValidationError") {
 
-                const errorArray = Object.values(error.errors); //Array med errors
-                const errorMessage = errorArray.map(err => (err.message));  //Hittar message bland errors
-                console.log(errorMessage);
+            const errorArray = Object.values(error.errors); //Array med errors
+            const errorMessage = errorArray.map(err => (err.message));  //Hittar message bland errors
+            console.log(errorMessage);
 
-                return res.status(400).json({ message: errorMessage });
-            }
-
-            return res.status(500).json({ message: "Server error" });
+            return res.status(400).json({ message: errorMessage });
         }
-    })
+
+        return res.status(500).json({ message: "Server error" });
+    }
+})
 
 
 //Delete route, radera måltid i meny

@@ -13,7 +13,7 @@ const menuRoutes = require("./routes/menuRoutes");
 //Express-instans
 const app = express();
 
-const port = process.env.PORT || 5000; 
+const port = process.env.PORT || 5000;
 
 //Ansluta till MongoDB
 mongoose.connect(process.env.DATABASE).then(() => {
