@@ -1,6 +1,6 @@
 //Importera express, Employee, authenticationToken och jwt
 const express = require("express");
-const Employee = require("../models/Employee.model.js");
+const Employee = require("../models/employee.model.js");
 const authenticationtoken = require("../middleware/authenticationtoken.js");
 const jwt = require("jsonwebtoken");
 
