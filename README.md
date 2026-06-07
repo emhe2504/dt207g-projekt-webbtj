@@ -17,6 +17,7 @@ GET /:id (för gäster att hämta sin bokning)
 POST / (För gäster att göra en bokning)
 
 
+____
 
 
 **För route:** /menu
@@ -32,6 +33,7 @@ PUT /:id (för att ändra befintlig måltid eller dryck i meny) - skyddad av aut
 DELETE /:id (för att radera befintlig måltid eller dryck i meny) - skyddad av authenticationtoken
 
 
+____
 
 
 
@@ -49,6 +51,7 @@ DELETE /:id (för att radera specifik bordsbokning) - skyddad av authenticationt
 
 
 
+____
 
 
 **För route:** /employee
