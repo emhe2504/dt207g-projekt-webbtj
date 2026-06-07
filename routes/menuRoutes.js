@@ -1,7 +1,7 @@
 //Importera express, Menu och authenticationToken
 const express = require("express");
 const Menu = require("../models/menu.model.js");
-const authenticationToken = require("../middleware/authenticationToken.js");
+const authenticationtoken = require("../middleware/authenticationToken.js");
 
 const route = express.Router();
 
@@ -21,7 +21,7 @@ route.get("/", async (req, res) => {
 
 
 //Get route, hämta specifik måltid i meny med id
-route.get("/:id", authenticationToken, async (req, res) => {
+route.get("/:id", authenticationtoken, async (req, res) => {
 
     try {
         const id = req.params.id;
@@ -37,7 +37,7 @@ route.get("/:id", authenticationToken, async (req, res) => {
 
 
 //Post route, lägga till i meny
-route.post("/", authenticationToken, async (req, res) => {
+route.post("/", authenticationtoken, async (req, res) => {
 
     try {
 
@@ -62,7 +62,7 @@ route.post("/", authenticationToken, async (req, res) => {
 
 
 //Put route, ändra befintlig måltid i meny med id
-route.put("/:id", authenticationToken, async (req, res) => {
+route.put("/:id", authenticationtoken, async (req, res) => {
 
     try {
 
@@ -91,7 +91,7 @@ route.put("/:id", authenticationToken, async (req, res) => {
 
 
 //Delete route, radera måltid i meny
-route.delete("/:id", authenticationToken, async (req, res) => {
+route.delete("/:id", authenticationtoken, async (req, res) => {
 
     try {
 

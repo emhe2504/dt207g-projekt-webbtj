@@ -1,13 +1,13 @@
 //Importera express, Reservation och authenticationToken
 const express = require("express");
 const Reservation = require("../models/reservation.model.js");
-const authenticationToken = require("../middleware/authenticationToken.js");
+const authenticationtoken = require("../middleware/authenticationToken.js");
 
 const route = express.Router();
 
 
 //Get route, hämta alla reservationer
-route.get("/", authenticationToken, async (req, res) => {
+route.get("/", authenticationtoken, async (req, res) => {
 
     try {
 
@@ -21,7 +21,7 @@ route.get("/", authenticationToken, async (req, res) => {
 
 
 //Get route, hämta specifik reservation
-route.get("/:id", authenticationToken, async (req, res) => {
+route.get("/:id", authenticationtoken, async (req, res) => {
 
     try {
         const id = req.params.id;
@@ -37,7 +37,7 @@ route.get("/:id", authenticationToken, async (req, res) => {
 
 
 //Post route, skapa reservation (t ex. om mottagen bokning via telefon)
-route.post("/", authenticationToken, async (req, res) => {
+route.post("/", authenticationtoken, async (req, res) => {
 
     try {
 
@@ -62,7 +62,7 @@ route.post("/", authenticationToken, async (req, res) => {
 
 
 //Put route, ändra i reservation
-route.put("/:id", authenticationToken, async (req, res) => {
+route.put("/:id", authenticationtoken, async (req, res) => {
 
     try {
 
@@ -90,7 +90,7 @@ route.put("/:id", authenticationToken, async (req, res) => {
 
 
 //Delete route, ta bort en reservation
-route.delete("/:id", authenticationToken, async (req, res) => {
+route.delete("/:id", authenticationtoken, async (req, res) => {
 
     try {
 

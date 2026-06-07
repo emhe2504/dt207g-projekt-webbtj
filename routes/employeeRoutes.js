@@ -1,14 +1,14 @@
 //Importera express, Employee, authenticationToken och jwt
 const express = require("express");
 const Employee = require("../models/Employee.model.js");
-const authenticationToken = require("../middleware/authenticationToken.js");
+const authenticationtoken = require("../middleware/authenticationToken.js");
 const jwt = require("jsonwebtoken");
 
 const route = express.Router();
 
 
 //GET - hämta alla anställda
-route.get("/", authenticationToken, async (req, res) => {
+route.get("/", authenticationtoken, async (req, res) => {
     try {
         let result = await Employee.find({}, { password: 0 });  //För säkerhet, visa inte lösen
         res.json(result);
@@ -20,7 +20,7 @@ route.get("/", authenticationToken, async (req, res) => {
 
 
 //GET - hämta anställd med specifikt id
-route.get("/:id", authenticationToken, async (req, res) => {
+route.get("/:id", authenticationtoken, async (req, res) => {
     try {
 
         const ID = req.params.id;
@@ -37,7 +37,7 @@ route.get("/:id", authenticationToken, async (req, res) => {
 
 
 //PUT - redigera anställd med specifikt id
-route.put("/:id", authenticationToken, async (req, res) => {
+route.put("/:id", authenticationtoken, async (req, res) => {
 
     try {
         const id = req.params.id;
@@ -148,7 +148,7 @@ route.post("/login", async (req, res) => {
 })
 
 //DELETE - radera anställd med specifikt id
-route.delete("/:id", authenticationToken, async (req, res) => {
+route.delete("/:id", authenticationtoken, async (req, res) => {
 
     try {
         const id = req.params.id;
