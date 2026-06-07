@@ -1,7 +1,7 @@
 //Importera express, Menu och authenticationToken
 const express = require("express");
 const Menu = require("../models/menu.model.js");
-const authenticationtoken = require("../middleware/authenticationToken.js");
+const authenticationtoken = require("../middleware/authenticationtoken.js");
 
 const route = express.Router();
 

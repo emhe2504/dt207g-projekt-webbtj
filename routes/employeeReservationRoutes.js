@@ -1,7 +1,7 @@
 //Importera express, Reservation och authenticationToken
 const express = require("express");
 const Reservation = require("../models/reservation.model.js");
-const authenticationtoken = require("../middleware/authenticationToken.js");
+const authenticationtoken = require("../middleware/authenticationtoken.js");
 
 const route = express.Router();
 
